@@ -10,6 +10,11 @@
 		<v-main>
 			<slot />
 		</v-main>
+		<v-footer app>
+			<div class="text-center w-100 bg-grey-darken-4 rounded">
+				<span>&copy; Developed By Patrick De Lara</span>
+			</div>
+		</v-footer>
 	</v-app>
 </template>
 <script>
