@@ -132,8 +132,8 @@ const launches = computed(() => data.value?.launches ?? [])
 const favoritesStore = useFavoritesStore()
 
 // Load favorites on mount
-onMounted(() => {
-  favoritesStore.loadFavorites()
+onMounted(async () => {
+  await favoritesStore.loadFromIndexedDB()
 })
 
 // filterby composable for year filtering
@@ -170,8 +170,9 @@ watch(selectedYear, () => {
     currentPage.value = 1
 })
 
-// Handle favorite toggle
-const handleFavoriteToggle = (launchId: string) => {
-  favoritesStore.toggleFavorite(launchId)
+// Handle favorite toggle (now async)
+const handleFavoriteToggle = async (launchId: string) => {
+  await favoritesStore.toggleFavorite(launchId)
 }
+
 </script>
